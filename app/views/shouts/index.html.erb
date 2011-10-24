@@ -1,0 +1,28 @@
+<% if notice %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+<%= form_for(@shout) do |form| %>
+  <% unless @shout.errors.empty? %>
+    <p>Failed to save because: </p>
+    <ul>
+      <% @shout.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form.text_field :body, placeholder: "Shout here" %>
+    <%= form.submit "Shout" %>
+  </div>
+<% end %>
+
+<section>
+<h1>Shouts</h1>
+<% unless @shouts.empty? %>
+  <ol>
+  <% @shouts.each do |shout| %>
+    <li><%= shout.body %></li>
+  <% end %>
+  </ol>
+<% end %>
+</section>
