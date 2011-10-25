@@ -8,12 +8,18 @@
 </head>
 <body>
 	
+	
 	<%= link_to "Sign up", new_user_path %>
 
+	<% if notice %>
+	  <p class="notice"><%= notice %></p>
+<% end %>
+	
 <%= yield %>
 
 <% if signed_in? %>
    You are <%= current_user.email %>
+   <%= link_to "Sign out", sign_out_path, method: :delete, confirm: "Are you sure?" %>
 <% else %>
    You are not signed in.
    <%= link_to "Sign in", sign_in_path %>

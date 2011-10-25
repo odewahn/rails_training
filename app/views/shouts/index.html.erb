@@ -1,6 +1,4 @@
-<% if notice %>
-  <p class="notice"><%= notice %></p>
-<% end %>
+
 <%= form_for(@shout) do |form| %>
   <% unless @shout.errors.empty? %>
     <p>Failed to save because: </p>
@@ -21,8 +19,9 @@
 <% unless @shouts.empty? %>
   <ol>
   <% @shouts.each do |shout| %>
-    <li><%= shout.body %></li>
+    <li><%= shout.body %> - <%= shout.user.email %></li>
   <% end %>
   </ol>
+  <%= paginate @shouts %>
 <% end %>
 </section>
