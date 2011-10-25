@@ -1,5 +1,5 @@
 
-<%= form_for(@shout) do |form| %>
+<%= form_for(@shout, remote: true) do |form| %>
   <% unless @shout.errors.empty? %>
     <p>Failed to save because: </p>
     <ul>
@@ -17,7 +17,7 @@
 <section>
 <h1>Shouts</h1>
 <% unless @shouts.empty? %>
-  <ol>
+  <ol id="shouts">
   <% @shouts.each do |shout| %>
     <li><%= shout.body %> - <%= shout.user.email %></li>
   <% end %>
