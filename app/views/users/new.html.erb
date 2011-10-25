@@ -1,0 +1,15 @@
+
+<%= form_for(@user) do |form| %>
+<% unless @user.errors.empty? %>
+  <p>Failed to save because: </p>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h1>Sign Up to Shout</h1>
+<%= form.text_field :email, placeholder: "Enter your email" %>
+<%= form.submit "Save" %>
+<% end %>
